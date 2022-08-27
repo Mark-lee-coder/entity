@@ -40,10 +40,19 @@ public class EntityApplication implements CommandLineRunner {
 
         productRepository.save(product2);
 
-        List <Product> products = productRepository.findAll();
+        List <Product> products = productRepository.findAll();//queries all products
 
         for (Product product : products) {
-            logger.info("Products found:" +product.toString());
+            logger.info("Products found:" +product.toString());//logs out to console all products
+        }
+
+        Product resultProduct = productRepository.findByType("GENERAL");//queries a specific type, general products in this case
+        logger.info("General types of product found:" +resultProduct.toString());//logs out to console general products
+
+        List <Product> results = productRepository.findByCategoryAndSector("TEST", "SECTOR1");//queries products using specific parameters
+
+        for (Product product : results) {
+            logger.info("Matching results are:" +product.toString());//logs out products meeting the specified parameters
         }
     }
 }
