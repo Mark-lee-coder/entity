@@ -54,4 +54,15 @@ public class Product {
     public void setSector(String sector) {
         this.sector = sector;
     }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", category='" + category + '\'' +
+                ", type='" + type + '\'' +
+                ", sector='" + sector + '\'' +
+                '}';
+    }
 }
